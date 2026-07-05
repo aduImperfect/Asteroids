@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bnaer01ag2xrj"]
+
+[ext_resource type="PackedScene" uid="uid://cvb4qexdfumqx" path="res://TSCN/ship.tscn" id="1_ar723"]
+
+[node name="Level" type="Node2D" unique_id=1711630488]
+
+[node name="Ship" parent="." unique_id=688945203 instance=ExtResource("1_ar723")]
+position = Vector2(550, 350)
