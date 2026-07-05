@@ -22,22 +22,26 @@ func _ready() -> void:
 	rotate(firstRotation)
 	#Apply force on spawning!
 	force_range = randf_range(5.0, 10.0)
-	#apply_force(forward_vector * force_range)
+	add_constant_force(forward_vector * force_range)
 	get_child(0).scale *= size
 	get_child(1).scale *= size
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	#print("----------------------------------")
 	var tempPos : Vector2 = ScreenWrapperHelper._get_new_position(position)
+	#print("Old Position: ", position)
+	#print("Temporary Position: ", tempPos)
 	#Do not reset position if already on same position to make sure the physics code does not get overwritten!!
-	if tempPos.x < infiniteMax.x || tempPos.y < infiniteMax.y:
+	if tempPos.x < infiniteMax.x && tempPos.y < infiniteMax.y:
 		return
 	#Update to new position based on screen wrapping!
 	position = tempPos
+	#print("Updated Position: ", position)
+	#print("----------------------------------")
 
 func _physics_process(_delta: float) -> void:
-	apply_force(forward_vector * force_range)
-	#if directionRight < 5:
-		#rotate(rotationRadian)
-	#else:
-		#rotate(-rotationRadian)
+	if directionRight < 5:
+		rotate(rotationRadian)
+	else:
+		rotate(-rotationRadian)
