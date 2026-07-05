@@ -8,21 +8,13 @@ extends RigidBody2D
 @export var propelForward : bool = false
 @export var propelBack : bool = false
 
-#@export var screenWrapMinX : bool = false
-#@export var screenWrapMinY : bool = false
-#@export var screenWrapMaxX : bool = false
-#@export var screenWrapMaxY : bool = false
-#@export var viewportSize : Vector2
-#@export var offset : float
-#@export var resetOffset : float
+@export var infiniteMax : Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#1 degree in radians * 10.
 	rotationRadian = 0.174533
-	#viewportSize = get_viewport().get_visible_rect().size
-	#offset = 50.0
-	#resetOffset = 10.0
+	infiniteMax = Vector2(-9000.0, -9000.0)
 	ScreenWrapperHelper._set_viewport_size(get_viewport().get_visible_rect().size)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -52,7 +44,7 @@ func _process(_delta: float) -> void:
 		#screenWrapMinY = false
 	var tempPos : Vector2 = ScreenWrapperHelper._get_new_position(position)
 	#Do not reset position if already on same position to make sure the physics code does not get overwritten!!
-	if tempPos.x < -9000.0 && tempPos.y < -9000.0:
+	if tempPos.x < infiniteMax.x && tempPos.y < infiniteMax.y:
 		return
 	#Update to new position based on screen wrapping!
 	position = tempPos

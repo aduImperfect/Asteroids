@@ -9,10 +9,13 @@ static var viewportSize : Vector2
 static var offset : float
 static var resetOffset : float
 
+static var screenInfiniteMax : Vector2
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	offset = 50.0
 	resetOffset = 10.0
+	screenInfiniteMax = Vector2(-9999.0, -9999.0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -23,7 +26,7 @@ static func _set_viewport_size(vpSize : Vector2) -> void:
 	print(viewportSize)
 
 static func _get_new_position(pos : Vector2) -> Vector2:
-	var new_pos : Vector2 = Vector2(-9999.0, -9999.0)
+	var new_pos : Vector2 = Vector2(screenInfiniteMax.x, screenInfiniteMax.y)
 	if pos.x > ((viewportSize.x / 2) + offset):
 		screenWrapMaxX = true
 	if screenWrapMaxX == true:
