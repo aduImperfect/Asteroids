@@ -19,29 +19,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	#if position.x > ((viewportSize.x / 2) + offset):
-		#screenWrapMaxX = true
-	#if screenWrapMaxX == true:
-		#position.x = -((viewportSize.x / 2) + offset) + resetOffset
-		#screenWrapMaxX = false
-#
-	#if position.y > ((viewportSize.y / 2) + offset):
-		#screenWrapMaxY = true
-	#if screenWrapMaxY == true:
-		#position.y = -((viewportSize.y / 2) + offset) + resetOffset
-		#screenWrapMaxY = false
-#
-	#if position.x < -((viewportSize.x / 2) + offset):
-		#screenWrapMinX = true
-	#if screenWrapMinX == true:
-		#position.x = ((viewportSize.x / 2) + offset) - resetOffset
-		#screenWrapMinX = false
-#
-	#if position.y < -((viewportSize.y / 2) + offset):
-		#screenWrapMinY = true
-	#if screenWrapMinY == true:
-		#position.y = ((viewportSize.y / 2) + offset) - resetOffset
-		#screenWrapMinY = false
 	var tempPos : Vector2 = ScreenWrapperHelper._get_new_position(position)
 	#Do not reset position if already on same position to make sure the physics code does not get overwritten!!
 	if tempPos.x < infiniteMax.x && tempPos.y < infiniteMax.y:

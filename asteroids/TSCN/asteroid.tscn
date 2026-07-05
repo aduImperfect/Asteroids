@@ -1,18 +1,24 @@
 [gd_scene format=3 uid="uid://ps5qmio3vo34"]
 
 [ext_resource type="Texture2D" uid="uid://dcqlfxg12bfc7" path="res://Textures/Asteroid.PNG" id="1_76tv2"]
+[ext_resource type="Script" uid="uid://bpisqg2g414vl" path="res://TSCN/asteroid.gd" id="1_nplgm"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ucb7h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m6x6n"]
 radius = 20.0
 
 [node name="Asteroid" type="Node2D" unique_id=1297097537]
 
-[node name="Asteroid" type="Sprite2D" parent="." unique_id=749718673]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("1_76tv2")
+[node name="AstRB2D" type="RigidBody2D" parent="." unique_id=3665132]
+physics_material_override = SubResource("PhysicsMaterial_ucb7h")
+gravity_scale = 0.0
+script = ExtResource("1_nplgm")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1323458863]
-
-[node name="AsteroidCS2D" type="CollisionShape2D" parent="Area2D" unique_id=1914558533]
+[node name="AsteroidCS2D" type="CollisionShape2D" parent="AstRB2D" unique_id=1914558533]
 z_index = 5
 shape = SubResource("CircleShape2D_m6x6n")
+
+[node name="Asteroid" type="Sprite2D" parent="AstRB2D" unique_id=749718673]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_76tv2")

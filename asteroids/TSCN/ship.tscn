@@ -13,28 +13,19 @@ size = Vector2(40, 24)
 
 [node name="Ship" type="Node2D" unique_id=688945203]
 
-[node name="RB2D" type="RigidBody2D" parent="." unique_id=220992835]
+[node name="ShRB2D" type="RigidBody2D" parent="." unique_id=220992835]
 physics_material_override = SubResource("PhysicsMaterial_vg2nm")
 gravity_scale = 0.0
 script = ExtResource("1_0jh4d")
-rotationRadian = null
-rotateLeft = null
-rotateRight = null
-propelForward = null
-propelBack = null
-screenWrapMinX = null
-screenWrapMinY = null
-screenWrapMaxX = null
-screenWrapMaxY = null
 
-[node name="BeakCS2D" type="CollisionShape2D" parent="RB2D" unique_id=130827236]
+[node name="BeakCS2D" type="CollisionShape2D" parent="ShRB2D" unique_id=130827236]
 position = Vector2(0, -20)
 shape = SubResource("RectangleShape2D_d2add")
 
-[node name="BodyCS2D" type="CollisionShape2D" parent="RB2D" unique_id=967282232]
+[node name="BodyCS2D" type="CollisionShape2D" parent="ShRB2D" unique_id=967282232]
 shape = SubResource("RectangleShape2D_m6x6n")
 
-[node name="ShipImg" type="Sprite2D" parent="RB2D" unique_id=1162873575]
+[node name="ShipImg" type="Sprite2D" parent="ShRB2D" unique_id=1162873575]
 position = Vector2(0, -8)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_vg2nm")
