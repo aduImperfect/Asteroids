@@ -14,5 +14,6 @@ texture = ExtResource("1_18f1n")
 [node name="Area2D" type="Area2D" parent="." unique_id=1088364250]
 
 [node name="BulletCS2D" type="CollisionShape2D" parent="Area2D" unique_id=639372685]
+z_index = -5
 shape = SubResource("CircleShape2D_m6x6n")
 debug_color = Color(0.76904094, 0.4462031, 0, 0.41960785)

@@ -17,6 +17,15 @@ size = Vector2(40, 24)
 physics_material_override = SubResource("PhysicsMaterial_vg2nm")
 gravity_scale = 0.0
 script = ExtResource("1_0jh4d")
+rotationRadian = null
+rotateLeft = null
+rotateRight = null
+propelForward = null
+propelBack = null
+screenWrapMinX = null
+screenWrapMinY = null
+screenWrapMaxX = null
+screenWrapMaxY = null
 
 [node name="BeakCS2D" type="CollisionShape2D" parent="RB2D" unique_id=130827236]
 position = Vector2(0, -20)
